@@ -5,7 +5,6 @@ namespace App\Http\Requests;
 use App\Dtos\PostStoreDto;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
-use Spatie\DataTransferObject\DataTransferObject;
 
 class PostStoreRequest extends FormRequest
 {
@@ -16,7 +15,7 @@ class PostStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check();
+        return 1;
     }
 
     /**
@@ -37,7 +36,7 @@ class PostStoreRequest extends FormRequest
         return new PostStoreDto([
             'title' => $this->input('title'),
             'body' => $this->input('body'),
-            'user_id' => (int) Auth::user()->getKey(),
+            'user_id' => $this->input('user_id'),
         ]);
     }
 }

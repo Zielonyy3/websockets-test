@@ -12,9 +12,18 @@ class Post extends Model
 
     protected $guarded = [];
 
+    protected $dateFormat = 'U';
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
+
+//    public function getCreatedAtAttribute($value) {
+//        return \Carbon\Carbon::parse($value)->format('Y-m-d H:i');
+//    }
+//
+//    public function getUpdatedAtAttribute($value) {
+//        return \Carbon\Carbon::parse($value)->format('Y-m-d H:i');
+//    }
 }

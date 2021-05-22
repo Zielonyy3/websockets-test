@@ -15,6 +15,11 @@ class PostRepository extends BaseRepository implements PostRepositoryContract
 
     public function all(): Collection
     {
-        return $this->model->orderByDesc('updated_at')->get();
+        return $this->model->latest()->get();
+    }
+
+    public function last( int $number): Collection
+    {
+        return $this->model->latest()->limit($number)->get();
     }
 }

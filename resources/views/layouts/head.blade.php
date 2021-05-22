@@ -5,6 +5,7 @@
 <meta name="author" content="">
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta name="api_token" content="{{ (Auth::user()) ? Auth::user()->api_token : '' }}">
 
 <title>{{ config('app.name', 'Laravel') }}</title>
 
